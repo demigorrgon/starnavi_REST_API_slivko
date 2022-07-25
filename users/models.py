@@ -56,3 +56,7 @@ class BaseUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"Id: {self.pk} - user: {self.username}"
+
+    class Meta:
+        verbose_name = "User"
+        verbose_name_plural = "Users"
