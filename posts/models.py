@@ -23,3 +23,6 @@ class Like(models.Model):
 
     class Meta:
         unique_together = [["liked_post", "liked_by"]]
+
+    def __str__(self) -> str:
+        return f"id: {self.pk}, liked post: {self.liked_post.title} by {self.liked_by.username}"
