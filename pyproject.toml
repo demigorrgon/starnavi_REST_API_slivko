@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "starnavi_rest_api_slivko"
+version = "0.0.1"
+description = "REST API as a test task"
+authors = ["Valentyn Slivko demigorrgon@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "3.2"
+djangorestframework = "^3.13.1"
+djangorestframework-simplejwt = "^5.2.0"
+python-dotenv = "^0.20.0"
+psycopg2-binary = "^2.9.3"
+drf-spectacular = "^0.22.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+flake8 = "^4.0.1"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
