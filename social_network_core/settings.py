@@ -14,6 +14,7 @@ DEBUG = int(os.getenv("DEBUG"))
 
 ALLOWED_HOSTS = ["*"]
 
+AUTH_USER_MODEL = "users.BaseUser"
 
 # Application definition
 
