@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 if os.environ.get("GITHUB_WORKFLOW"):
-    DEBUG = int(os.environ.get("DEBUG"))
+    DEBUG = True
 else:
     DEBUG = int(os.getenv("DEBUG"))
 
