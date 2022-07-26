@@ -10,7 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = int(os.getenv("DEBUG"))
+if os.environ.get("GITHUB_WORKFLOW"):
+    DEBUG = int(os.environ.get("DEBUG"))
+else:
+    DEBUG = int(os.getenv("DEBUG"))
 
 ALLOWED_HOSTS = ["*"]
 
