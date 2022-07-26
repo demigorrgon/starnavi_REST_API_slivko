@@ -10,10 +10,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = int(os.getenv("DEBUG"))
+if os.environ.get("GITHUB_WORKFLOW"):
+    DEBUG = True
+else:
+    DEBUG = int(os.getenv("DEBUG"))
 
 ALLOWED_HOSTS = ["*"]
 
+AUTH_USER_MODEL = "users.BaseUser"
 
 # Application definition
 
@@ -37,6 +41,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    "users.middleware.LatestUserActivityMiddleWare",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -74,6 +79,19 @@ DATABASES = {
         "PORT": os.getenv("DB_PORT"),
     }
 }
+
+# workaround to get postgres working in github actions
+if os.environ.get("GITHUB_WORKFLOW"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "github_actions",
+            "USER": "postgres",
+            "PASSWORD": "postgres",
+            "HOST": "127.0.0.1",
+            "PORT": "5432",
+        }
+    }
 
 
 # Password validation
@@ -118,3 +136,11 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DATETIME_FORMAT": "%d-%m-%Y %H:%M %Z",
+}

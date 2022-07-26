@@ -1,0 +1,456 @@
+{
+	"variables": [],
+	"info": {
+		"name": "starnavi_test_project_slivko",
+		"_postman_id": "1c1eee7e-0c62-5101-aadd-79d11077f5c2",
+		"description": "Collection of postman tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Like singular Post entity",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/posts/1/like/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NzYzMjMzLCJpYXQiOjE2NTg3NjI5MzMsImp0aSI6ImI4YWYwYjNmNGViMTQyMGU4OGM3ZmMyZTdlMTI3ZmI0IiwidXNlcl9pZCI6MX0.X94P3_CuWen9-XWUKFIZBjQtzssrERuZtOavN2CET54",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Like Post endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "Disike singular Post entity",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/posts/1/dislike/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NzYzMjMzLCJpYXQiOjE2NTg3NjI5MzMsImp0aSI6ImI4YWYwYjNmNGViMTQyMGU4OGM3ZmMyZTdlMTI3ZmI0IiwidXNlcl9pZCI6MX0.X94P3_CuWen9-XWUKFIZBjQtzssrERuZtOavN2CET54",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Dislike Post endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtain token",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/token/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "yourusername",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "yourpassword",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Obtain JWT token"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtain Refresh token",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/token/refresh/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1ODg0OTUyNSwiaWF0IjoxNjU4NzYzMTI1LCJqdGkiOiIxZTliMmQwNDI3YTU0NmJjYTkzNzRjZDIyZjIzMDhmYSIsInVzZXJfaWQiOjF9.PRLuYUDrshse26fZUZixFlrkZ-3xZ4nnbWC4-2Rln1s",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Verify JWT token",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/token/verify/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NzYzNDI1LCJpYXQiOjE2NTg3NjMxMjUsImp0aSI6IjgxMTg2NTdjYjFiNjRiNjBiYmFmYWY5Yzc4NzM3NGRhIiwidXNlcl9pZCI6MX0.ocZRfu7JPlu4wO9pNqrTIGiMIY7XBz9huOh85AYl4O4",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register in Social Network",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/users/register",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "d@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "demitest",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "somepass1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "some",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "dude",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/users/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "d@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "demitest",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "somepass1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "some",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "dude",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get single user",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/users/1",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "d@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "demitest",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "somepass1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "some",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "dude",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH single user",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/users/1/",
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "d@gmail.com",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "demitest",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "somepass1",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "some",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "dude2",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET all Posts",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/posts/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NzY2MDg0LCJpYXQiOjE2NTg3NjU3ODQsImp0aSI6IjE0MmQwMzYwOWJiMzRhZDhiNzkxZDFlNjU5Njg4YzRjIiwidXNlcl9pZCI6MX0.lcpxxQtIbqFgBPVa6TUShtctdp01fBZv3Nkym3ofv-k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE single Post",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/posts/1/",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NzY2MDg0LCJpYXQiOjE2NTg3NjU3ODQsImp0aSI6IjE0MmQwMzYwOWJiMzRhZDhiNzkxZDFlNjU5Njg4YzRjIiwidXNlcl9pZCI6MX0.lcpxxQtIbqFgBPVa6TUShtctdp01fBZv3Nkym3ofv-k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET singular Post",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/posts/1/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NzY2MDg0LCJpYXQiOjE2NTg3NjU3ODQsImp0aSI6IjE0MmQwMzYwOWJiMzRhZDhiNzkxZDFlNjU5Njg4YzRjIiwidXNlcl9pZCI6MX0.lcpxxQtIbqFgBPVa6TUShtctdp01fBZv3Nkym3ofv-k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create singular Post",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/posts/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NzY2Mzk5LCJpYXQiOjE2NTg3NjYwOTksImp0aSI6ImYwM2U1NmRmZjNiNTQ3M2Y4MDI4YWM0ZDM0MzkyOTFkIiwidXNlcl9pZCI6MX0.LjEXI3D6l1A-mmi6RUOg6vRePiDr1NcwCR07eBQb5D8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "some",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "also some",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET users activity",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/users/user-activity/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4ODEwNjIyLCJpYXQiOjE2NTg4MTAzMjIsImp0aSI6ImQ0NDA0ZjU0Y2QzYzQwY2Q4MzkwNTcwOTU2OTEyMjNhIiwidXNlcl9pZCI6MX0.F9ibvFMwzVpS5B7Y-ReOzcHU1r2grPwF-Mxc8zFlD1w",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET Likes analytics",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/analytics/?date_from=2022-07-24&date_to=2022-07-26",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analytics",
+						""
+					],
+					"query": [
+						{
+							"key": "date_from",
+							"value": "2022-07-24",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "date_to",
+							"value": "2022-07-26",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4ODExMzAyLCJpYXQiOjE2NTg4MTEwMDIsImp0aSI6IjA1NDA0ZTRlOTE1MTQxYWNhZGU0YzEyOWZlMGY2N2YzIiwidXNlcl9pZCI6MX0.xCHxNIVY-F8HyIZFziNkMTLFpjMKGOQbopUySzQLIqQ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Local docker-compose test ",
+			"request": {
+				"url": "http://0.0.0.0:8000/api/posts/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

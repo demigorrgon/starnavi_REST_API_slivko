@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  social-network-app:
+    image: social-network-test-task
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: >
+      sh -c "sleep 2 && python3 manage.py migrate && gunicorn --bind :8000 --workers 4 social_network_core.wsgi:application"
+    volumes:
+      - .:/social-app
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgresdb
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - DB_HOST=postgresdb
+      - DB_NAME=${DB_NAME}
+
+  postgresdb:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+volumes:
+  pgdata:
