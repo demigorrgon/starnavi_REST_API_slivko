@@ -1,10 +1,11 @@
 from django.db import IntegrityError
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from users.models import BaseUser
-from users.serializers import UserSerializer
+from users.serializers import UserActivitySerializer, UserSerializer
 
 
 class RegisterView(CreateAPIView):
@@ -41,4 +42,11 @@ class RegisterView(CreateAPIView):
 class UsersViewSet(ModelViewSet):
     queryset = BaseUser.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
     http_method_names = ["get", "patch", "options"]
+
+
+class UserActivity(RetrieveAPIView):
+    queryset = BaseUser.objects.all()
+    serializer_class = UserActivitySerializer
+    permission_classes = [IsAuthenticated]
