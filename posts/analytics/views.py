@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from posts.serializers import LikeSerializer
 from posts.models import Like
@@ -8,6 +9,7 @@ from datetime import datetime
 
 class LikeAnalyticsViewSet(ModelViewSet):
     http_method_names = ["get"]
+    permission_classes = [IsAuthenticated]
     serializer_class = LikeSerializer
 
     def get_queryset(self):
