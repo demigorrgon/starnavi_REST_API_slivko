@@ -9,6 +9,7 @@ Additional Django extensions:
 - `drf-spectacular` - auto Swagger schema/docs generation
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![codecov](https://codecov.io/gh/demigorrgon/starnavi_REST_API_slivko/branch/main/graph/badge.svg?token=EHN75BKVAU)](https://codecov.io/gh/demigorrgon/starnavi_REST_API_slivko)
 
 # Firing up the project
 ### With docker-compose:
